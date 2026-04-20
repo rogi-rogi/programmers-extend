@@ -1,0 +1,26 @@
+﻿{
+  "manifest_version": 3,
+  "name": "Programmers Extend",
+  "description": "A simple extension that helps you while solving problems on Programmers.",
+  "version": "1.0.0",
+  "permissions": ["storage", "notifications", "alarms"],
+  "background": {
+    "service_worker": "src/background/notifications.js"
+  },
+  "action": {
+    "default_popup": "src/popup/popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://school.programmers.co.kr/learn/courses/30/lessons/*"
+      ],
+      "js": ["src/content/timer.js"],
+      "css": ["src/content/timer.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "icons": {
+    "128": "assets/icon-128.png"
+  }
+}
